@@ -35,3 +35,9 @@ export interface HouseInt {
   coords: HouseCoordsInt;
   keyholders: KeyHolder[];
 }
+
+export interface IMyKeys {
+  coords: HouseCoordsInt;
+  id: number;
+  label: string;
+}

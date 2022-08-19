@@ -1,4 +1,45 @@
-import { HouseInt } from '../types/houses';
+import { HouseInt, IMyKeys } from '../types/houses';
+
+export const MockMyKeys: IMyKeys[] =[
+  {
+    id: 1,
+    label: 'Signal St 2',
+    coords: {
+      cam: {
+        h: 73.05778503417969,
+        yaw: -10.0,
+        x: 158.59518432617188,
+        z: 7.23966360092163,
+        y: -2928.146728515625,
+      },
+      enter: {
+        h: 73.05778503417969,
+        x: 158.59518432617188,
+        z: 7.23966360092163,
+        y: -2928.146728515625,
+      },
+    },
+  },
+  {
+    id: 2,
+    label: 'Didion Dr 3',
+    coords: {
+      cam: {
+        h: 73.05778503417969,
+        yaw: -10.0,
+        x: 158.59518432617188,
+        z: 7.23966360092163,
+        y: -2928.146728515625,
+      },
+      enter: {
+        h: 73.05778503417969,
+        x: 158.59518432617188,
+        z: 7.23966360092163,
+        y: -2928.146728515625,
+      },
+    },
+  }
+]
 
 export const MockHouses: HouseInt[] = [
   {

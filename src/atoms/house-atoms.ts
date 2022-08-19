@@ -1,6 +1,6 @@
 import { atom, selector, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { HouseInt } from '../types/houses';
-import { MockHouses } from '../utils/constants';
+import { HouseInt, IMyKeys } from '../types/houses';
+import { MockHouses, MockMyKeys } from '../utils/constants';
 import { isEnvBrowser } from '../utils/misc';
 import fetchNui from '../utils/fetchNui';
 import { ServerPromiseResp } from '../types/common';
@@ -23,6 +23,30 @@ export const houseStates = {
         } catch (e) {
           if (isEnvBrowser()) {
             return MockHouses;
+          }
+          console.error(e);
+          return [];
+        }
+      },
+    }),
+  }),
+  myKeys: atom({
+    key: 'myKeys',
+    default: selector<IMyKeys[]>({
+      key: 'defaultMyKeys',
+      get: async () => {
+        try {
+          const resp = await fetchNui<ServerPromiseResp<IMyKeys[]>>(
+            'npwd:qb-housing:getPlayerKeys',
+          );
+          if (!resp.data) {
+            console.log('no response data');
+            return [];
+          }
+          return resp.data;
+        } catch (e) {
+          if (isEnvBrowser()) {
+            return MockMyKeys;
           }
           console.error(e);
           return [];
