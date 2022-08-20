@@ -55,7 +55,7 @@ const App = (props: AppProps) => {
                   <HouseList isDarkMode={isDarkMode} />
               </Route>
               <Route exact path="/housing/keys">
-                  <KeyList />
+                  <KeyList isDarkMode={isDarkMode} />
               </Route>
             </Switch>
             <Modal />

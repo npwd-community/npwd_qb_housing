@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Box, Button, Divider, TextField } from '@mui/material';
+import { Box, Button, TextField } from '@mui/material';
 import { useHouseAPI } from '../../../hooks/useHouseAPI';
-import { useSelectedHousesValue, useModalVisible } from '../../../atoms/house-atoms';
+import { useSelectedHousesValue, useSetModalVisible } from '../../../atoms/house-atoms';
 
 const Transfer = () => {
   const [transferId, setTransferId] = useState('');
   const { transferHouse } = useHouseAPI();
   const selectedHouse = useSelectedHousesValue();
-  const [modalVisible, setModalVisible] = useModalVisible();
+  const setModalVisible = useSetModalVisible();
 
   const handleHouseTransfer = () => {
     transferHouse(selectedHouse.house, transferId).then(() => {

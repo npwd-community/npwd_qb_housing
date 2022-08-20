@@ -78,4 +78,7 @@ export const useSelectedHousesValue = () => useRecoilValue(houseStates.selectedH
 export const useSetSelectedHouse = () => useSetRecoilState(houseStates.selectedHouse);
 
 export const useSetModalType = () => useSetRecoilState(houseStates.modalType);
-export const useModalType = () => useRecoilState(houseStates.modalType);
+export const useModalType = () => useRecoilValue(houseStates.modalType);
+
+export const useMyKeysValue = () => useRecoilValue(houseStates.myKeys);
+export const useSetMyKeys = () => useSetRecoilState(houseStates.myKeys);

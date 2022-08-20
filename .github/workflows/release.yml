@@ -35,20 +35,20 @@ jobs:
     
     - name: Bundle
       run: |
-        mkdir -p ./temp/npwd_qb_mail
-        cp ./{README.md,fxmanifest.lua} ./temp/npwd_qb_mail
-        cp -r ./client ./temp/npwd_qb_mail
-        cp -r ./server ./temp/npwd_qb_mail
-        cp -r ./web ./temp/npwd_qb_mail
-        cd ./temp && zip -r ../npwd_qb_mail.zip ./npwd_qb_mail
+        mkdir -p ./temp/npwd_qb_housing
+        cp ./{README.md,fxmanifest.lua} ./temp/npwd_qb_housing
+        cp -r ./client ./temp/npwd_qb_housing
+        cp -r ./server ./temp/npwd_qb_housing
+        cp -r ./web ./temp/npwd_qb_housing
+        cd ./temp && zip -r ../npwd_qb_housing.zip ./npwd_qb_housing
     - name: Create Release
       uses: "marvinpinto/action-automatic-releases@v1.2.1"
       id: auto_release
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        title: NPWD QB Mail App | ${{ steps.get_tag.outputs.VERSION_TAG }}
+        title: NPWD QB Housing App | ${{ steps.get_tag.outputs.VERSION_TAG }}
         prerelease: false
-        files: npwd_qb_mail.zip
+        files: npwd_qb_housing.zip
 
       env:
         CI: false

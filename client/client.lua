@@ -33,6 +33,11 @@ RegisterNUICallback("npwd:qb-housing:removeKeyHolder", function(data, cb)
     cb({status = "ok"})
 end)
 
+RegisterNUICallback("npwd:qb-housing:setWaypoint", function(data, cb)
+	SetNewWaypoint(data.coords.x, data.coords.y)
+	cb({status = "ok"})
+end)
+
 
 
 

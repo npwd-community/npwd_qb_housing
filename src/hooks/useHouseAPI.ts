@@ -4,15 +4,40 @@ import { ServerPromiseResp } from '../types/common';
 import fetchNui from '../utils/fetchNui';
 import { useHouseActions } from './useHouseActions';
 import { KeyHolder } from '../types/houses';
+import { HouseCoordsInt } from '../types/houses';
 
 interface HouseAPIValue {
   transferHouse: (house: string, citizenid: string) => Promise<void>;
   removeKey: (house: string, keyholder: KeyHolder) => Promise<void>;
+  setWaypoint: (coords: HouseCoordsInt) => Promise<void>;
 }
 
 export const useHouseAPI = (): HouseAPIValue => {
   const { addAlert } = useSnackbar();
   const { deleteLocalHouse, deleteKeyHolder } = useHouseActions();
+
+  const setWaypoint = useCallback(
+    async (coords: HouseCoordsInt) => {
+
+      const resp = await fetchNui<ServerPromiseResp>('npwd:qb-housing:setWaypoint', {
+        coords: coords.enter
+      });
+
+      if (resp.status !== 'ok') {
+        return addAlert({
+          message: 'Failed to set waypoint',
+          type: 'error',
+        });
+      }
+
+      addAlert({
+        message: 'Successfully marked house',
+        type: 'success',
+      });
+    },
+    [addAlert],
+  );
+
 
   const removeKey = useCallback(
     async (house: string, keyholder: KeyHolder) => {
@@ -35,8 +60,6 @@ export const useHouseAPI = (): HouseAPIValue => {
           type: 'error',
         });
       }
-
-      deleteKeyHolder(house, keyholder.citizenid);
 
       addAlert({
         message: 'Successfully removed key',
@@ -70,5 +93,5 @@ export const useHouseAPI = (): HouseAPIValue => {
     [addAlert, deleteLocalHouse],
   );
 
-  return { transferHouse, removeKey };
+  return { transferHouse, removeKey, setWaypoint };
 };

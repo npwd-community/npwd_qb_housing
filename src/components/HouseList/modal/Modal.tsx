@@ -8,7 +8,7 @@ import Keys from './Keys';
 const Modal = () => {
   const [modalVisible, setModalVisible] = useModalVisible();
   const selectedHouse = useSelectedHousesValue();
-  const [modalType, setModalType] = useModalType();
+  const modalType = useModalType();
 
   if (!modalVisible || !selectedHouse || !modalType) {
     return null;

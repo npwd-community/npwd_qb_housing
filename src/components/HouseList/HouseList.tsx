@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHousesValue, useModalVisible, useSetSelectedHouse, useModalType } from '../../atoms/house-atoms';
+import { useHousesValue, useSetModalType, useSetModalVisible, useSetSelectedHouse } from '../../atoms/house-atoms';
 import { Box, List, ListItem, ListItemText, IconButton, Tooltip } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
@@ -11,8 +11,8 @@ import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
 
 const HouseList = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const houses = useHousesValue();
-  const [modalVisible, setModalVisible] = useModalVisible();
-  const [modalType, setModalType] = useModalType();
+  const setModalVisible = useSetModalVisible();
+  const setModalType = useSetModalType();
   const setHouse = useSetSelectedHouse();
 
   const handleClick = (house: HouseInt, type: string) => {

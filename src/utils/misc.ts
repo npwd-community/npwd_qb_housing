@@ -16,33 +16,3 @@ export const buildRespObj = (
   status,
   errorMsg,
 });
-
-const MonthFormatting = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
-
-export const dateString = (mailDate: number) => {
-  const date = new Date(mailDate);
-  return (
-    date.getDay() +
-    ' ' +
-    MonthFormatting[date.getMonth()] +
-    ' ' +
-    date.getFullYear() +
-    ' ' +
-    date.getHours() +
-    ':' +
-    date.getMinutes()
-  );
-};
