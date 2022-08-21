@@ -27,8 +27,8 @@ end)
 RegisterNUICallback("npwd:qb-housing:removeKeyHolder", function(data, cb)
     TriggerServerEvent('qb-houses:server:removeHouseKey', data.house, {
         citizenid = data.HolderData.citizenid,
-        firstname = data.HolderData.firstname,
-        lastname = data.HolderData.lastname,
+        firstname = data.HolderData.firstName,
+        lastname = data.HolderData.lastName,
     })
     cb({status = "ok"})
 end)
