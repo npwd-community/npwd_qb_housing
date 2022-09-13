@@ -6,7 +6,7 @@
 1. Download the `npwd_qb_housing.zip` from releases. DO NOT CHANGE THE RESOURCE NAME. If you want to change it, you'll have to download the source code, alter `fetchNui.ts`, and build the project.
 2. Unzip and add the resource to your server resources folder
 3. Ensure `npwd_qb_housing` BEFORE `npwd`
-4. Add app to NPWD config.json in the `apps` section `"apps": ["npwd_qb_housing]`
+4. Add app to NPWD config.json in the `apps` section `"apps": ["npwd_qb_housing"]`
 
 ## Preview
 ![image](https://user-images.githubusercontent.com/68856260/185721173-8d399e16-a0d8-448d-b98f-179f97ad521a.png)
