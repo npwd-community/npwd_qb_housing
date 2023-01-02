@@ -59,6 +59,8 @@ export const useHouseAPI = (): HouseAPIValue => {
           message: 'Failed to remove key',
           type: 'error',
         });
+      } else {
+        deleteKeyHolder(house, keyholder.citizenid); 
       }
 
       addAlert({
