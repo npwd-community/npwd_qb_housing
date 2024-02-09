@@ -6,10 +6,10 @@ import { BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import App from './App';
 import image from './bg.png';
-import { NuiProvider } from 'react-fivem-hooks';
 import { IPhoneSettings } from '@project-error/npwd-types';
 import i18next from 'i18next';
 import { createTheme } from '@mui/material';
+import {RecoilRoot} from 'recoil';
 
 const Container = styled.div`
   position: relative;
@@ -70,14 +70,14 @@ const Root = () => {
 
   return (
     <BrowserRouter>
-      <NuiProvider>
+      <RecoilRoot>
         <Container>
           <Background src={image} />
           <AppContainer>
               <App settings={settings} i18n={i18next} theme={theme} />
           </AppContainer>
         </Container>
-      </NuiProvider>
+      </RecoilRoot>
     </BrowserRouter>
   );
 };
