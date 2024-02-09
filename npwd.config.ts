@@ -2,6 +2,10 @@ import App from './src/App';
 import { HouseIcon } from './icon';
 import { theme, HOUSE_APP_PRIMARY_COLOR } from './src/app.theme';
 
+interface Settings {
+  language: "en";
+}
+
 export const externalAppConfig = () => ({
   id: 'housing',
   nameLocale: 'Properties',

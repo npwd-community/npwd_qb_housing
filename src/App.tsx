@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { IPhoneSettings } from '@project-error/npwd-types';
 import { i18n } from 'i18next';
 import { Theme, StyledEngineProvider, ThemeProvider } from '@mui/material';
-import { RecoilRoot } from 'recoil';
 import Header from './components/Header';
 import { PhoneSnackbar } from './snackbar/PhoneSnackbar';
 import SnackbarProvider from './snackbar/SnackbarProvider';
@@ -14,6 +13,9 @@ import HouseList from './components/HouseList/HouseList';
 import KeyList from './components/KeyList/KeyList';
 import Modal from './components/HouseList/modal/Modal';
 import ModalBackground from './components/HouseList/modal/ModalBackground';
+import {RecoilEnv, RecoilRoot} from "recoil";
+
+RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 
 const Container = styled.div<{ isDarkMode: any }>`
   flex: 1;
@@ -23,7 +25,7 @@ const Container = styled.div<{ isDarkMode: any }>`
   overflow: auto;
   max-height: 100%;
   background-color: #fafafa;
-  ${({ isDarkMode }) =>
+  ${({isDarkMode}) =>
     isDarkMode &&
     `
     background-color: #121212;
@@ -71,11 +73,9 @@ const App = (props: AppProps) => {
 };
 
 const WithProviders: React.FC<AppProps> = (props) => (
-  <NuiProvider>
-    <RecoilRoot>
-      <App {...props} />
-    </RecoilRoot>
-  </NuiProvider>
+  <RecoilRoot override key="npwd_qb_housing">
+    <App {...props} />
+  </RecoilRoot>
 );
 
 export default WithProviders;
